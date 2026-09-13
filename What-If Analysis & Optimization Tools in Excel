@@ -1,0 +1,6 @@
+# What-If Analysis & Optimization Tools in Excel
+
+* **Solver** finds an optimal solution for a formula.
+* **Goal Seek** lets one start with a desired result and calculates the input value that gives another result.
+* **Scenario Manager** helps one to view the results of different input values at the same time.
+* **Data Table** allows one to perform a comparative analysis of the available data.
