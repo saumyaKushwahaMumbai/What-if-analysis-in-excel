@@ -1,0 +1,23 @@
+# Advanced Data Analysis Techniques in Excel
+
+### 1. Moving Average Chart
+* **Concept:** Smooths out short-term fluctuations in time-series data to highlight long-term trends or cycles.
+* **Example:** Calculating a 3-month moving average for monthly product sales to forecast future demand by smoothing out temporary spikes.
+
+### 2. ANOVA (Analysis of Variance)
+* **Concept:** Compares the average values (means) of three or more independent groups to test if at least one group differs significantly.
+* **Example:** Testing whether customer satisfaction scores vary across three different store locations (Location A vs. Location B vs. Location C).
+
+### 3. Covariance & Correlation
+* **Concept:** Measures how two variables move together. 
+  * **Covariance:** Shows the direction of a linear relationship (positive/negative).
+  * **Correlation:** Measures both direction and strength on a standardized scale from -1 to +1.
+* **Example:** Checking if higher advertising spend correlates with an increase in total sales revenue.
+
+### 4. Regression Analysis
+* **Concept:** Models the relationship between a dependent variable ($Y$) and one or more independent variables ($X$) to predict outcomes.
+* **Example:** Predicting house prices based on factors like square footage, number of bedrooms, and location age.
+
+### 5. Normal Distribution
+* **Concept:** Creates a bell-shaped probability distribution curve where data symmetrically clusters around the mean ($\mu$) with a specific standard deviation ($\sigma$).
+* **Example:** Mapping customer age data or test scores to see if the majority of values fall within standard deviation thresholds (e.g., 68-95-99.7 rule).
