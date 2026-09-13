@@ -4,6 +4,9 @@
 * **Concept:** Smooths out short-term fluctuations in time-series data to highlight long-term trends or cycles.
 * **Example:** Calculating a 3-month moving average for monthly product sales to forecast future demand by smoothing out temporary spikes.
 
+It simply gives the average of intervals. If we out interval value as 3, It will calculate the average of first 3 observations...then next 3 obs & o on...
+
+
 ### 2. ANOVA (Analysis of Variance)
 * **Concept:** Compares the average values (means) of three or more independent groups to test if at least one group differs significantly.
 * **Example:** Testing whether customer satisfaction scores vary across three different store locations (Location A vs. Location B vs. Location C).
