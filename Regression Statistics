@@ -1,0 +1,305 @@
+# Regression Statistics — Explained Simply
+
+These 5 parameters appear in Excel's **Data Analysis → Regression** output. They help us understand how well our regression model explains and predicts the dependent variable.
+
+Let's use a practical example throughout:
+
+**Example:** A real-estate company wants to predict **House Price** based on **House Area** and **Number of Bedrooms**.
+
+* **Dependent variable (Y):** House Price
+* **Independent variables (X):** House Area, Number of Bedrooms
+
+---
+
+## 1. Multiple R
+
+### Meaning
+
+**Multiple R measures the strength of the relationship between the actual dependent variable (Y) and the values predicted by the regression model.**
+
+In simple regression, it is closely related to the correlation between X and Y.
+
+In multiple regression, it considers **all independent variables together**.
+
+### Example
+
+Suppose Excel shows:
+
+**Multiple R = 0.90**
+
+This indicates a **strong positive relationship between the actual house prices (Y) and the house prices predicted by the model**.
+
+* **0** → No linear relationship
+* **1** → Perfect positive relationship
+* **Closer to 1** → Stronger relationship
+
+### Interview line
+
+> **Multiple R measures the strength of the linear relationship between actual and predicted values of the dependent variable.**
+
+### Important
+
+Multiple R tells us the **strength of the relationship**, not the percentage of variation explained.
+
+That is **R-Squared**.
+
+---
+
+# 2. R-Squared (R²)
+
+### Meaning
+
+**R-Squared tells us what proportion of the variation in the dependent variable is explained by the independent variables in the regression model.**
+
+### Example
+
+Suppose:
+
+**R² = 0.81**
+
+Convert it into percentage:
+
+**0.81 × 100 = 81%**
+
+This means:
+
+> **81% of the variation in house prices is explained by house area and number of bedrooms in the model.**
+
+The remaining **19%** is variation not explained by these variables and the model.
+
+### Think of it like this
+
+**Total variation in Y = 100%**
+
+* **Variation explained by model = 81%**
+* **Unexplained variation = 19%**
+
+### Formula
+
+```math
+R^2 = 1-\frac{SS_{Residual}}{SS_{Total}}
+```
+
+### Interview line
+
+> **R-Squared measures the proportion of variance in the dependent variable explained by the independent variables.**
+
+### Remember
+
+A higher R² generally indicates a **better fit to the observed data**, but:
+
+* It does not prove causation.
+* A high R² does not guarantee accurate future predictions.
+* A high R² alone does not mean the model is perfect.
+
+---
+
+# 3. Adjusted R-Squared
+
+### Meaning
+
+**Adjusted R-Squared is a modified version of R² that considers the number of independent variables in the model and the number of observations.**
+
+### Why is it needed?
+
+Suppose you build two models:
+
+**Model 1**
+
+* House Area → House Price
+* Number of Bedrooms → House Price
+
+**Model 2**
+
+* House Area
+* Number of Bedrooms
+* House Age
+* Distance from city centre
+* Number of bathrooms
+* Garage size
+* Garden size
+* Floor number
+* etc.
+
+Adding more variables can increase **R²**, even if some variables add very little useful information.
+
+**Adjusted R² penalizes unnecessary predictors.**
+
+### Example
+
+| Model                  |   R² | Adjusted R² |
+| ---------------------- | ---: | ----------: |
+| Model 1: 2 predictors  | 0.81 |        0.79 |
+| Model 2: 10 predictors | 0.84 |        0.70 |
+
+Although **Model 2 has a higher R²**, its **Adjusted R² is much lower**.
+
+This suggests that the additional variables may not improve the model enough to justify their inclusion.
+
+### Interview line
+
+> **Adjusted R-Squared adjusts R² for the number of predictors and helps compare models with different numbers of independent variables.**
+
+---
+
+## Difference between R² and Adjusted R²
+
+| R-Squared                                    | Adjusted R-Squared                                                           |
+| -------------------------------------------- | ---------------------------------------------------------------------------- |
+| Measures explained variation.                | Measures explained variation while accounting for the number of predictors.  |
+| Does not decrease when predictors are added. | Can decrease when unnecessary predictors are added.                          |
+| Useful for understanding model fit.          | Useful for comparing models with different numbers of independent variables. |
+
+### Easy way to remember
+
+**R²:**
+
+> "How much variation does my model explain?"
+
+**Adjusted R²:**
+
+> "How much variation does my model explain, after considering how many predictors I used?"
+
+---
+
+# 4. Standard Error
+
+### Meaning
+
+**Standard Error in the Regression Statistics section measures the typical size of the prediction errors, expressed in the same units as the dependent variable.**
+
+It is also called the **standard error of the regression** or **residual standard error**.
+
+### Example
+
+Suppose:
+
+**Standard Error = ₹5 lakh**
+
+If the dependent variable is **House Price in lakhs**, the model's prediction errors typically have a size of around **₹5 lakh**.
+
+For example:
+
+| Actual House Price | Predicted House Price |
+| -----------------: | --------------------: |
+|           ₹80 lakh |              ₹76 lakh |
+|          ₹100 lakh |             ₹105 lakh |
+|          ₹120 lakh |             ₹115 lakh |
+
+The errors are the differences between actual and predicted values.
+
+**Actual − Predicted = Residual (Error)**
+
+For example:
+
+* ₹80L − ₹76L = **₹4L**
+* ₹100L − ₹105L = **−₹5L**
+* ₹120L − ₹115L = **₹5L**
+
+Standard Error summarizes the **spread of these residuals**.
+
+### Interview line
+
+> **Standard Error measures the typical spread of residuals around the regression line, in the units of the dependent variable.**
+
+### Is lower better?
+
+Generally, **yes**.
+
+A lower Standard Error means the predictions are typically closer to the actual values, assuming the models are being compared on the **same target and data**.
+
+---
+
+# 5. Observations
+
+### Meaning
+
+**Observations are the total number of data points (rows) used in the regression analysis.**
+
+### Example
+
+Suppose your dataset contains **100 houses**, and each row represents one house.
+
+Then:
+
+**Observations = 100**
+
+This means the regression model was built using **100 data points**.
+
+| House     | Area (sq. ft.) | Bedrooms | Price (₹ lakh) |
+| --------- | -------------: | -------: | -------------: |
+| House 1   |          1,200 |        2 |             80 |
+| House 2   |          1,500 |        3 |             95 |
+| House 3   |          1,000 |        2 |             70 |
+| ...       |            ... |      ... |            ... |
+| House 100 |          2,000 |        4 |            110 |
+
+Excel uses these **100 observations** to estimate the relationship between the independent variables and the dependent variable.
+
+### Interview line
+
+> **Observations represent the number of data points used to fit the regression model.**
+
+---
+
+# Quick Revision for Interviews
+
+| Parameter              | One-line meaning                                                      |
+| ---------------------- | --------------------------------------------------------------------- |
+| **Multiple R**         | Strength of the relationship between actual and predicted Y.          |
+| **R-Squared**          | Proportion/percentage of variation in Y explained by the X variables. |
+| **Adjusted R-Squared** | R² adjusted for the number of predictors.                             |
+| **Standard Error**     | Typical size/spread of prediction errors, in Y's units.               |
+| **Observations**       | Number of data points used in the regression.                         |
+
+---
+
+# How to Read Excel's Regression Statistics
+
+Suppose Excel gives:
+
+| Regression Statistic | Value |
+| -------------------- | ----: |
+| Multiple R           |  0.90 |
+| R Square             |  0.81 |
+| Adjusted R Square    |  0.79 |
+| Standard Error       |     5 |
+| Observations         |   100 |
+
+You can explain:
+
+> **The regression model has a strong relationship between actual and predicted Y, with Multiple R of 0.90. The R-Squared of 0.81 indicates that 81% of the variation in Y is explained by the independent variables. The Adjusted R-Squared is 0.79 after accounting for the number of predictors. The Standard Error is 5 units of Y, and the model is based on 100 observations.**
+
+---
+
+# Most Important for Interviews
+
+### Remember these 5 things:
+
+**Multiple R → Relationship**
+
+> How strongly are actual Y and predicted Y related?
+
+**R² → Explained variation**
+
+> What percentage of variation in Y is explained by X?
+
+**Adjusted R² → R² + penalty for predictors**
+
+> Does the model still look good after considering the number of predictors?
+
+**Standard Error → Prediction error**
+
+> How far, typically, are predictions from actual Y?
+
+**Observations → Data points**
+
+> How many rows/data points were used?
+
+### One important distinction
+
+> **Multiple R tells you the strength of the relationship. R² tells you how much variation in Y is explained by the model.**
+
+And:
+
+> **A high R² alone does not mean the model is perfect or that the independent variables cause Y.**
